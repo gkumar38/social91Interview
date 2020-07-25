@@ -1,10 +1,15 @@
 package com.social91.Interview.CycleManufacturer;
 
 import java.util.Scanner;
+import java.util.concurrent.BlockingQueue;
 
-public class ChainAssembly {
+public class ChainAssembly implements EvaluateCost{
+	private BlockingQueue<EvaluateCost> queue;
 	
-	
+	public ChainAssembly(BlockingQueue<EvaluateCost> queue2) {
+		 this.queue=queue2;
+		// TODO Auto-generated constructor stub
+	}
 	private double chainCost;
 	
 	public double getChainCost() {
@@ -14,11 +19,11 @@ public class ChainAssembly {
 		this.chainCost = chainCost;
 	}
 	public double priceEvaluation() {
-		ChainAssembly chainAssembly = new ChainAssembly();
+		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Print chain cost");
 		double chainCost = sc.nextDouble();
-		chainAssembly.setChainCost(chainCost);
+		setChainCost(chainCost);
 		sc.close();
 		return chainCost;
 	}

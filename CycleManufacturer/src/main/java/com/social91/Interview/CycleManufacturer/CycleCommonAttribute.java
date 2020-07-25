@@ -4,7 +4,7 @@ import java.text.ParseException;
 
 public interface CycleCommonAttribute {
 	
-	public void evaluateTime()throws ParseException;
+	public long evaluateTime()throws ParseException;
 	
 	public double evaluatePrice();
 	

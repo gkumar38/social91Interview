@@ -1,8 +1,16 @@
 package com.social91.Interview.CycleManufacturer;
 
 import java.util.Scanner;
+import java.util.concurrent.BlockingQueue;
 
-public class Seating{
+public class Seating implements EvaluateCost{
+	
+private BlockingQueue<EvaluateCost> queue;
+	
+	public Seating(BlockingQueue<EvaluateCost> queue2) {
+		 this.queue=queue2;
+		
+	}
 	
 	private double cost;
 	public double getCost() {
@@ -13,11 +21,11 @@ public class Seating{
 	}
 	
 	public double priceEvaluation() {
-		Seating seat = new Seating();
+		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Print seat cost:");
 		double priceSeat = sc.nextDouble();
-		seat.setCost(priceSeat);
+		setCost(priceSeat);
 		sc.close();
 		return priceSeat;
 		

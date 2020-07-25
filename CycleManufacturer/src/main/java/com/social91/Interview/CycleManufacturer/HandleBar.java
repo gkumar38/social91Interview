@@ -1,8 +1,15 @@
 package com.social91.Interview.CycleManufacturer;
 
 import java.util.Scanner;
+import java.util.concurrent.BlockingQueue;
 
-public class HandleBar {
+public class HandleBar implements EvaluateCost{
+private BlockingQueue<EvaluateCost> queue;
+	
+	public HandleBar(BlockingQueue<EvaluateCost> queue2) {
+		 this.queue=queue2;
+		// TODO Auto-generated constructor stub
+	}
 	
 	private double designCost;
 	
@@ -14,11 +21,11 @@ public class HandleBar {
 	}
 	
 	public double priceEvaluation() {
-		HandleBar chainAssembly = new HandleBar();
+		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Print handle cost");
 		double handleCost = sc.nextDouble();
-		chainAssembly.setDesignCost(handleCost);
+		setDesignCost(handleCost);
 		sc.close();
 		return getDesignCost();
 	}	

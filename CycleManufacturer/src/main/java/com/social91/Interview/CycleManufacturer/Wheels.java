@@ -1,11 +1,17 @@
 package com.social91.Interview.CycleManufacturer;
 
 import java.util.Scanner;
+import java.util.concurrent.BlockingQueue;
 
-public class Wheels{
+public class Wheels implements EvaluateCost{
 	
 	private double wheelCost;
+private BlockingQueue<EvaluateCost> queue;
 	
+	public Wheels(BlockingQueue<EvaluateCost> queue2) {
+		 this.queue=queue2;
+		
+	}
 	
 	
 	public double getWheelCost() {
@@ -15,7 +21,7 @@ public class Wheels{
 		this.wheelCost = wheelCost;
 	}
 	public double priceEvaluation() {
-		Wheels wheel = new Wheels();
+		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Print cost of tube");
 		double tubeCost = sc.nextDouble();
@@ -23,7 +29,7 @@ public class Wheels{
 		double gearCost =  sc.nextDouble();
 		System.out.println("Print cost of frame");
 		double frameCost = sc.nextDouble();
-		wheel.setWheelCost(frameCost+gearCost+tubeCost);
+		setWheelCost(frameCost+gearCost+tubeCost);
 		return getWheelCost();
 	}
 	

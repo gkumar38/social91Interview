@@ -1,10 +1,16 @@
 package com.social91.Interview.CycleManufacturer;
 
 import java.util.Scanner;
+import java.util.concurrent.BlockingQueue;
 
-public class Frame {
+public class Frame implements EvaluateCost{
 	
-	private CycleCommonAttribute cycleCommon;
+	private BlockingQueue<EvaluateCost> queue;
+	
+	public Frame(BlockingQueue<EvaluateCost> queue2) {
+		 this.queue=queue2;
+		// TODO Auto-generated constructor stub
+	}
 	private double rodcost;
 	private double designcost;
 	private int rodnumber;
@@ -26,23 +32,17 @@ public class Frame {
 	public void setRodnumber(int rodnumber) {
 		this.rodnumber = rodnumber;
 	}
-	public CycleCommonAttribute getCycleCommon() {
-		return cycleCommon;
-	}
-	public void setCycleCommon(CycleCommonAttribute cycleCommon) {
-		this.cycleCommon = cycleCommon;
-	}
 	public double priceEvaluation() {
-		Frame frame = new Frame();
+		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Number of rods:");
 		int no_rods = sc.nextInt();
 		System.out.println("Print rod cost:");
 		double priceRod = sc.nextDouble();
 		double price = no_rods*priceRod;
-		frame.setDesigncost(price);
+		setDesigncost(price);
 		sc.close();
-		return frame.getDesigncost();
+		return price;
 		
 	}
 
